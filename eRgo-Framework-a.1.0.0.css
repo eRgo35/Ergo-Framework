@@ -68,7 +68,7 @@ blockquote * {
 }
 
 dl.datalist-side {
-  border-top: 1px solid #4a2b20;
+  border-top: 1px solid #9a0007;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -83,7 +83,7 @@ dl.datalist-side dt {
       flex-basis: 20%;
   padding: 2px 4px;
   text-align: right;
-  background: #4a2b20;
+  background: #9a0007;
   color: #ffffff;
   font-weight: 500;
 }
@@ -96,12 +96,12 @@ dl.datalist-side dd {
           flex-grow: 1;
   margin: 0;
   padding: 2px 4px;
-  border-bottom: 1px solid #4a2b20;
+  border-bottom: 1px solid #9a0007;
   color: #000000;
 }
 
 dl.datalist-top {
-  border-top: 1px solid #4a2b20;
+  border-top: 1px solid #9a0007;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -109,12 +109,14 @@ dl.datalist-top {
   -webkit-box-direction: normal;
       -ms-flex-flow: column wrap;
           flex-flow: column wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   max-height: 6em;
 }
 
 dl.datalist-top dt {
   padding: 2px 4px;
-  background: #4a2b20;
+  background: #9a0007;
   color: #ffffff;
   font-weight: 500;
 }
@@ -151,9 +153,9 @@ ol.list-vertical li {
 hr {
   border: 0;
   height: 1px;
-  background: #000000;
-  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), color-stop(#000000), to(#ffffff));
-  background-image: linear-gradient(to right, #ffffff, #000000, #ffffff);
+  background: #8b8b8b;
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), color-stop(#8b8b8b), to(#ffffff));
+  background-image: linear-gradient(to right, #ffffff, #8b8b8b, #ffffff);
 }
 
 hr.hr-glyph {
@@ -368,11 +370,25 @@ input:focus {
 }
 
 input.is-error {
-  outline: 2px solid #dc3545;
+  outline: 1px solid #ffffff;
+  -webkit-transition: outline 0.5s linear;
+  transition: outline 0.5s linear;
+  border: 1px solid #dc3545;
+}
+
+input.is-error:focus {
+  outline: 4px solid #dc354670;
 }
 
 input.is-valid {
-  outline: 2px solid #28a745;
+  outline: 1px solid #ffffff;
+  -webkit-transition: outline 0.5s linear;
+  transition: outline 0.5s linear;
+  border: 1px solid #28a745;
+}
+
+input.is-valid:focus {
+  outline: 4px solid #28a74570;
 }
 
 select {
@@ -672,7 +688,7 @@ input[type="submit"].material-circle,
 input[type="button"].material-circle,
 input[type="reset"].material-circle {
   border: none;
-  background: #775447;
+  background: #d32f2f;
   color: #ffffff;
   padding: 0 16px;
   min-height: 64px;
@@ -694,32 +710,12 @@ input[type="reset"].material-circle {
   transition: box-shadow 0.2s, -webkit-box-shadow 0.2s;
 }
 
-button.material-circle.send i,
-input[type="submit"].material-circle.send i,
-input[type="button"].material-circle.send i,
-input[type="reset"].material-circle.send i {
-  -webkit-transition: -webkit-transform 1s ease;
-  transition: -webkit-transform 1s ease;
-  transition: transform 1s ease;
-  transition: transform 1s ease, -webkit-transform 1s ease;
-}
-
 button.material-circle.send:hover i,
 input[type="submit"].material-circle.send:hover i,
 input[type="button"].material-circle.send:hover i,
 input[type="reset"].material-circle.send:hover i {
-  -webkit-transform: rotate3d(1, 0, 0, 180deg);
-          transform: rotate3d(1, 0, 0, 180deg);
-  -webkit-transition: -webkit-transform 1s ease;
-  transition: -webkit-transform 1s ease;
-  transition: transform 1s ease;
-  transition: transform 1s ease, -webkit-transform 1s ease;
-}
-
-button.material-circle.add i,
-input[type="submit"].material-circle.add i,
-input[type="button"].material-circle.add i,
-input[type="reset"].material-circle.add i {
+  -webkit-transform: rotate3d(1, 0, 0, 360deg);
+          transform: rotate3d(1, 0, 0, 360deg);
   -webkit-transition: -webkit-transform 1s ease;
   transition: -webkit-transform 1s ease;
   transition: transform 1s ease;

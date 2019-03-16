@@ -19,9 +19,9 @@ $font-pre: "Share Tech Mono";
 $primary: #007bff;
 $p-light: #69a9ff;
 $p-dark: #0050cb;
-$secondary: #775447;
-$s-light: #a78172;
-$s-dark: #4a2b20;
+$secondary: #d32f2f;
+$s-light: #ff6659;
+$s-dark: #9a0007;
 $p-text: #000000;
 $s-text: #ffffff;
 $table-fade: #e6e6e6;
@@ -131,6 +131,7 @@ dl.datalist-top {
     border-top: 1px solid $s-dark;
     display: flex;
     flex-flow: column wrap;
+    flex-wrap: wrap;
     max-height: 6em;
 
     dt {
@@ -147,6 +148,8 @@ dl.datalist-top {
         min-height: 3em;
     }
 }
+
+
 
 ul.list-horizontal,
 ol.list-horizontal {
@@ -176,8 +179,8 @@ hr {
 
     border: 0;
     height: 1px;
-    background: $p-text;
-    background-image: linear-gradient(to right, $s-text, $p-text, $s-text);
+    background: #8b8b8b;
+    background-image: linear-gradient(to right, #ffffff, #8b8b8b, #ffffff);
 
 }
 
@@ -398,11 +401,21 @@ input {
     }
 
     &.is-error {
-        outline: 2px solid $error;
+        outline: 1px solid #ffffff;
+        transition: outline 0.5s linear;
+        border: 1px solid $error;
+        &:focus {
+            outline: 4px solid #dc354670;
+        }
     }
 
     &.is-valid {
-        outline: 2px solid $success;
+        outline: 1px solid #ffffff;
+        transition: outline 0.5s linear;
+        border: 1px solid $success;
+        &:focus {
+            outline: 4px solid #28a74570;
+        }
     }
 
 }
@@ -624,16 +637,8 @@ input[type="reset"] {
         outline: none;
         transition: box-shadow 0.2s;
 
-        &.send i {
-            transition: transform 1s ease;
-        }
-
         &.send:hover i {
-            transform: rotate3d(1, 0, 0, 180deg);
-            transition: transform 1s ease;
-        }
-
-        &.add i {
+            transform: rotate3d(1, 0, 0, 360deg);
             transition: transform 1s ease;
         }
 
