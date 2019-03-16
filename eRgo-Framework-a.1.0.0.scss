@@ -1,0 +1,710 @@
+/*
+ * Copyright(C) 2019
+ * Michał Czyż
+ * All Rights Reserved
+*/
+
+/* Google Fonts https://fonts.google.com */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese');
+@import url('https://fonts.googleapis.com/css?family=Srisakdi:400,700&subset=latin-ext,thai,vietnamese');
+@import url('https://fonts.googleapis.com/css?family=Share+Tech+Mono');
+
+/* Variables Declarations */
+
+$font-default: "Roboto";
+$font-quote: "Srisakdi";
+$font-pre: "Share Tech Mono";
+
+$primary: #007bff;
+$p-light: #69a9ff;
+$p-dark: #0050cb;
+$secondary: #775447;
+$s-light: #a78172;
+$s-dark: #4a2b20;
+$p-text: #000000;
+$s-text: #ffffff;
+$table-fade: #e6e6e6;
+$kbd-btn: #222222;
+$link: #0275d8;
+$link-hover: #00539b;
+$error: #dc3545;
+$success: #28a745;
+
+@mixin box-shadow($property) {
+    -webkit-box-shadow: $property;
+    -moz-box-shadow: $property;
+    box-shadow: $property;
+}
+
+@mixin transform($property) {
+    -webkit-transform: $property;
+    -moz-transform: $property;
+    transform: $property;
+}
+
+/* Main */
+
+html,
+body {
+    font-size: 16px;
+    font-family: $font-default;
+}
+
+/* Text */
+
+h1 {
+    font-weight: 300;
+    font-size: 2.5rem;
+    letter-spacing: -1.5px;
+}
+
+h2 {
+    font-weight: 300;
+    font-size: 2rem;
+    letter-spacing: -0.5px;
+}
+
+h3 {
+    font-weight: 400;
+    font-size: 1.75rem;
+    letter-spacing: 0;
+}
+
+h4 {
+    font-weight: 400;
+    font-size: 1.5rem;
+    letter-spacing: 0.25;
+}
+
+h5 {
+    font-weight: 400;
+    font-size: 1.25rem;
+    letter-spacing: 0;
+}
+
+h6 {
+    font-weight: 500;
+    font-size: 1.25rem;
+    letter-spacing: 0.15;
+}
+
+p {
+    font-weight: 400;
+    font-size: 1rem;
+    letter-spacing: 0.5;
+}
+
+blockquote * {
+    font-family: $font-quote;
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-transform: initial;
+    letter-spacing: 0;
+}
+
+dl.datalist-side {
+    border-top: 1px solid $s-dark;
+    display: flex;
+    flex-flow: row wrap;
+
+    dt {
+        flex-basis: 20%;
+        padding: 2px 4px;
+        text-align: right;
+        background: $s-dark;
+        color: $s-text;
+        font-weight: 500;
+    }
+
+    dd {
+        flex-basis: 70%;
+        flex-grow: 1;
+        margin: 0;
+        padding: 2px 4px;
+        border-bottom: 1px solid $s-dark;
+        color: $p-text;
+    }
+}
+
+dl.datalist-top {
+    border-top: 1px solid $s-dark;
+    display: flex;
+    flex-flow: column wrap;
+    max-height: 6em;
+
+    dt {
+        padding: 2px 4px;
+        background: $s-dark;
+        color: $s-text;
+        font-weight: 500;
+    }
+
+    dd {
+        margin: 0;
+        padding: 4px;
+        color: $p-text;
+        min-height: 3em;
+    }
+}
+
+ul.list-horizontal,
+ol.list-horizontal {
+
+    list-style-type: none;
+
+    li {
+        display: inline;
+        margin: 5px;
+    }
+
+}
+
+ul.list-vertical,
+ol.list-vertical {
+
+    list-style-type: none;
+
+    li {
+        display: block;
+        margin: 5px;
+    }
+
+}
+
+hr {
+
+    border: 0;
+    height: 1px;
+    background: $p-text;
+    background-image: linear-gradient(to right, $s-text, $p-text, $s-text);
+
+}
+
+hr.hr-glyph {
+
+    overflow: visible;
+    /* For IE */
+    padding: 0;
+    border: none;
+    border-top: medium double $p-text;
+    color: $p-light;
+    text-align: center;
+
+    &::after {
+
+        content: "§";
+        display: inline-block;
+        position: relative;
+        top: -0.7em;
+        font-size: 1.5em;
+        padding: 0 0.25em;
+        background: $s-text;
+
+    }
+
+}
+
+table {
+
+    border-collapse: collapse;
+
+    caption {
+        color: $p-text;
+        padding: 8px 8px;
+    }
+
+    th {
+        background: $primary;
+        padding: 12px 8px;
+        color: $s-text;
+        border: solid black;
+        border-width: 1px 0;
+    }
+
+    td {
+        padding: 12px 8px;
+        color: $p-text;
+    }
+
+    tr:nth-child(odd) {
+        background: $table-fade;
+    }
+
+}
+
+table.table-vertical {
+
+    border-collapse: collapse;
+    border: solid black;
+    border-width: 1px;
+
+    tfoot {
+        border: solid black;
+        border-width: 1px 0;
+    }
+
+    caption {
+        color: $p-text;
+        padding: 8px 8px;
+    }
+
+    th {
+        background: $primary;
+        padding: 12px 8px;
+        color: $s-text;
+        border: solid black;
+        border-width: 0 1px;
+    }
+
+    td {
+        padding: 12px 8px;
+        color: $p-text;
+    }
+
+    tr:nth-child(odd) {
+        background: $table-fade;
+    }
+
+}
+
+kbd {
+    background: $kbd-btn;
+    border-radius: 5px;
+    padding: 2px;
+    font-family: $font-pre;
+    color: $s-text;
+}
+
+code,
+samp,
+pre {
+    font-family: $font-pre;
+}
+
+a {
+
+    position: relative;
+    color: $link;
+    transition: color 0.4s ease;
+    text-decoration: none;
+
+    &:hover {
+        color: $link-hover;
+        transition: color 0.4s ease;
+    }
+
+    &:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        bottom: 0;
+        left: 0;
+        visibility: hidden;
+        transition: all 0.3s ease-in-out 0s;
+        transform: scaleX(0);
+        background: $link-hover;
+    }
+
+    &:hover:before {
+        visibility: visible;
+        transform: scaleX(1);
+    }
+
+}
+
+strong,
+b {
+    font-family: $font-default;
+    font-weight: bolder;
+}
+
+em {
+    font-family: $font-default;
+}
+
+i {
+    font-family: $font-default;
+    font-style: italic;
+}
+
+u,
+ins {
+    font-family: $font-default;
+    text-decoration: underline;
+}
+
+del,
+s {
+    font-family: $font-default;
+    text-decoration: line-through;
+}
+
+mark,
+.mark {
+    background: #f7e488;
+}
+
+var {
+    font-family: $font-pre;
+}
+
+/* Embedded content */
+
+video,
+audio {
+    width: 500px;
+}
+
+meter {
+    width: 500px;
+    height: 25px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+meter::-webkit-meter-bar {
+    background: none;
+    background-color: whiteSmoke;
+    box-shadow: 0 5px 5px -5px #333 inset;
+}
+
+meter::-webkit-meter-optimum-value {
+    box-shadow: 0 5px 5px -5px #999 inset;
+    background-size: 100% 100%;
+    background: $primary;
+}
+
+progress {
+    width: 500px;
+    height: 25px;
+}
+
+/* Form Elements */
+
+fieldset {
+    border-radius: 8px;
+    border: 1px solid $link;
+    font-family: $font-default;
+}
+
+input {
+
+    font-family: $font-default;
+
+    &:focus {
+        outline: 1px solid $p-light;
+    }
+
+    &.is-error {
+        outline: 2px solid $error;
+    }
+
+    &.is-valid {
+        outline: 2px solid $success;
+    }
+
+}
+
+select {
+
+    outline: none;
+    font-family: $font-default;
+    border-radius: 5px;
+
+}
+
+textarea {
+
+    font-family: $font-default;
+    font-size: 1rem;
+
+    &:focus {
+        outline: 1px solid $primary;
+    }
+
+}
+
+/* Buttons */
+
+button,
+input[type="submit"],
+input[type="button"],
+input[type="reset"] {
+
+    &.material-square {
+        border: none;
+        background: $primary;
+        color: $s-text;
+        padding: 0 16px;
+        height: 36px;
+        min-width: 64px;
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+        border-radius: 4px;
+        text-transform: uppercase;
+        text-overflow: ellipsis;
+        text-align: center;
+        vertical-align: middle;
+        box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.63);
+        outline: none;
+        transition: box-shadow 0.2s;
+
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            transform: scale(1);
+            transition: transform 1s ease;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            border-radius: 50%;
+            padding: 50%;
+            width: 32px;
+            height: 32px;
+            opacity: 0;
+            background: white;
+            transform: translate(-50%, -50%) scale(1);
+            transition: opacity 1s, transform 0.5s;
+        }
+
+        &:hover,
+        &:focus {
+            box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+        }
+
+        &:hover::before {
+            opacity: 0.08;
+        }
+
+
+        &:hover:focus::before {
+            opacity: 0.3;
+        }
+
+        &:active {
+            box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+        }
+
+        &:active::after {
+            opacity: 0.32;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0s;
+        }
+
+        &:disabled {
+            color: rgba(0, 0, 0, 0.377);
+            background-color: rgba(0, 0, 0, 0.116);
+            box-shadow: none;
+            cursor: initial;
+        }
+
+        &:disabled::before,
+        &:disabled::after {
+            opacity: 0;
+        }
+    }
+
+    &.material-round {
+        border: none;
+        background: $primary;
+        color: $s-text;
+        padding: 0 16px;
+        height: 36px;
+        min-width: 64px;
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+        border-radius: 80px;
+        text-transform: uppercase;
+        text-overflow: ellipsis;
+        text-align: center;
+        vertical-align: middle;
+        box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.63);
+        outline: none;
+        transition: box-shadow 0.2s;
+
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            transform: scale(1);
+            transition: transform 1s ease;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            border-radius: 50%;
+            padding: 50%;
+            width: 32px;
+            height: 32px;
+            opacity: 0;
+            background: white;
+            transform: translate(-50%, -50%) scale(1);
+            transition: opacity 1s, transform 0.5s;
+        }
+
+        &:hover,
+        &:focus {
+            box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+        }
+
+        &:hover::before {
+            opacity: 0.08;
+        }
+
+
+        &:hover:focus::before {
+            opacity: 0.3;
+        }
+
+        &:active {
+            box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+        }
+
+        &:active::after {
+            opacity: 0.32;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0s;
+        }
+
+        &:disabled {
+            color: rgba(0, 0, 0, 0.377);
+            background-color: rgba(0, 0, 0, 0.116);
+            box-shadow: none;
+            cursor: initial;
+        }
+
+        &:disabled::before,
+        &:disabled::after {
+            opacity: 0;
+        }
+    }
+
+    &.material-circle {
+        border: none;
+        background: $secondary;
+        color: $s-text;
+        padding: 0 16px;
+        min-height: 64px;
+        min-width: 64px;
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+        border-radius: 100%;
+        text-transform: uppercase;
+        text-overflow: ellipsis;
+        text-align: center;
+        vertical-align: middle;
+        box-shadow: 1px 1px 8px 0px rgba(0, 0, 0, 0.63);
+        outline: none;
+        transition: box-shadow 0.2s;
+
+        &.send i {
+            transition: transform 1s ease;
+        }
+
+        &.send:hover i {
+            transform: rotate3d(1, 0, 0, 180deg);
+            transition: transform 1s ease;
+        }
+
+        &.add i {
+            transition: transform 1s ease;
+        }
+
+        &.add:hover i {
+            transform: rotate(540deg);
+            transition: transform 1s ease;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            transform: scale(1);
+            transition: transform 1s ease;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            border-radius: 50%;
+            padding: 50%;
+            width: 32px;
+            height: 32px;
+            opacity: 0;
+            background: white;
+            transform: translate(-50%, -50%) scale(1);
+            transition: opacity 1s, transform 0.5s;
+        }
+
+        &:hover,
+        &:focus {
+            box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+        }
+
+        &:hover::before {
+            opacity: 0.08;
+        }
+
+
+        &:hover:focus::before {
+            opacity: 0.3;
+        }
+
+        &:active {
+            box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+        }
+
+        &:active::after {
+            opacity: 0.32;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0s;
+        }
+
+        &:disabled {
+            color: rgba(255, 255, 255, 0.493);
+            background-color: rgba(0, 0, 0, 0.192);
+            box-shadow: none;
+            cursor: initial;
+        }
+
+        &:disabled::before,
+        &:disabled::after {
+            opacity: 0;
+        }
+    }
+}
