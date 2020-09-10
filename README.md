@@ -1,3 +1,3 @@
-# eRgo Framework
+# Ergo Framework
 
-I created this framework to speed up my development of web apps.
+Simple framework to speed up the creation of simple web pages.
